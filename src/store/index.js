@@ -21,7 +21,6 @@ export default new Vuex.Store({
         // run setProducts mutation
         fetch('http://localhost:3000/products')
           .then( res => res.json() )
-          // .then( res => store.state.products = res )
           .then( res => {
             commit('setProducts', res )
             resolve()
