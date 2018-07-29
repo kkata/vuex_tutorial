@@ -7,7 +7,10 @@
       alt=""
     >
     <ul v-else>
-      <li v-for="product in products" :key="product.id">{{product.title}} - {{product.price}}</li>
+      <li v-for="product in products" :key="product.id">
+        {{product.title}} - {{product.price}} - {{product.inventory}}
+        <button @click="addProductToCart(product)">Add to cart</button>
+      </li>
     </ul>
   </div>
 </template>
@@ -33,7 +36,9 @@ export default {
 
   },
   methods: {
-
+    addProductToCart (product) {
+      this.$store.dispatch('addProductToCart', product)
+    }
   }
 }
 </script>
